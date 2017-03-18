@@ -1,0 +1,10 @@
+// $(".sign_up_errors").remove();
+// <% @user.errors.full_messages.each do |error| %>
+// 	$("h2").after("<li class='sign_up_errors' style='color:red;'><%= error %></li>")
+// <% end %>
+
+console.log("<%= @user.errors.messages %>")
+
+<% @user.errors.messages.map do |key, value| %>
+$("#user_<%= key %>").after("   <span style='color:red;'><%= key %> <%= value[0] %></span>")
+<% end %>
