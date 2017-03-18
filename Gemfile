@@ -19,6 +19,9 @@ gem 'clearance'
 
 gem 'figaro'
 
+gem 'omniauth'
+gem 'omniauth-facebook'
+
 group :development, :test do
   gem 'byebug', platform: :mri
 end
