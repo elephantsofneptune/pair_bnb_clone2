@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PairbnbClone2</title>
+    <title>AirBnb</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,23 @@
   </head>
 
   <body>
+  <%= link_to "Home", root_path %>
+  <%= link_to "Profile", current_user %>
+  <br>
+	<% if signed_in? %>
+      Signed in as: <%= current_user.email %>
+      <%= button_to 'Sign out', sign_out_path, method: :delete %>
+    <% else %>
+      <%= link_to 'Sign in', sign_in_path, id: "sign_in", remote: true %>
+      <%= link_to 'Sign up', sign_up_path, id: "sign_up" %>
+    <% end %>
+
+    <div id="flash">
+      <% flash.each do |key, value| %>
+        <div class="flash <%= key %>"><%= value %></div>
+      <% end %>
+    </div>
     <%= yield %>
+
   </body>
 </html>
