@@ -5,6 +5,7 @@
 
 console.log("<%= @user.errors.messages %>")
 
+$(".errors").remove()
 <% @user.errors.messages.map do |key, value| %>
-$("#user_<%= key %>").after("   <span style='color:red;'><%= key %> <%= value[0] %></span>")
+  $("#user_<%= key %>").after("   <span class='errors'style='color:red;'><%= key %> <%= value[0] %></span>")
 <% end %>

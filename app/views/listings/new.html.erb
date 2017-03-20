@@ -1,0 +1,4 @@
+<h1>Listings#new</h1>
+<%= form_for @listing, remote: true do |form| %>
+    <%= render partial: '/listings/form', object: form %>
+<% end %>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]
 
@@ -15,4 +16,6 @@ Rails.application.routes.draw do
   root "welcome#index"
 
   get "/auth/:provider/callback" => "sessions#create_from_omniauth", as: "facebook_login"
+
+  resources :listings
 end
