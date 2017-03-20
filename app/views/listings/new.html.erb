@@ -1,2 +1,4 @@
 <h1>Listings#new</h1>
-<p>Find me in app/views/listings/new.html.erb</p>
+<%= form_for @listing, remote: true do |form| %>
+    <%= render partial: '/listings/form', object: form %>
+<% end %>

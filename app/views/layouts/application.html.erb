@@ -17,7 +17,7 @@
       <%= button_to 'Sign out', sign_out_path, method: :delete %>
     <% else %>
       <%= link_to 'Sign in', sign_in_path, id: "sign_in", remote: true %>
-      <%= link_to 'Sign up', sign_up_path, id: "sign_up" %>
+      <%= link_to 'Sign up', sign_up_path, id: "sign_up", remote: true %>
     <% end %>
 
     <div id="flash">

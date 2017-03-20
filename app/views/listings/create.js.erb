@@ -1,0 +1,5 @@
+
+$(".errors").remove()
+<% @listing.errors.messages.map do |key, value| %>
+  $("#listing_<%= key %>").after("   <span class='errors' style='color:red;'><%= key %> <%= value[0] %></span>")
+<% end %>

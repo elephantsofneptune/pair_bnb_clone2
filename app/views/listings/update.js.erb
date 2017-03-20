@@ -1,0 +1,3 @@
+<% @listing.errors.messages.map do |key, value| %>
+  $("#listing_<%= key %>").after("   <span style='color:red;'><%= key %> <%= value[0] %></span>")
+<% end %>

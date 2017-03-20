@@ -1,24 +1,33 @@
-<div class="text-field" id="first_name">
-  <%= form.label :first_name %>
-  <%= form.text_field :first_name, type: 'text' %>
-</div>
+<div id="users_form">
+  <%= form_for @user, remote: true do |form| %>
+    <div class="text-field" id="first_name">
+      <%= form.label :first_name %>
+      <%= form.text_field :first_name, type: 'text' %>
+    </div>
 
-<div class="text-field" id="last_name">
-  <%= form.label :last_name %>
-  <%= form.text_field :last_name, type: 'text' %>
-</div>
+    <div class="text-field" id="last_name">
+      <%= form.label :last_name %>
+      <%= form.text_field :last_name, type: 'text' %>
+    </div>
 
-<div class="text-field" id="email">
-  <%= form.label :email %>
-  <%= form.text_field :email, type: 'email' %>
-</div>
+    <div class="text-field" id="email">
+      <%= form.label :email %>
+      <%= form.text_field :email, type: 'email' %>
+    </div>
 
-<div class="password-field" id="password">
-  <%= form.label :password %>
-  <%= form.password_field :password %>
-</div>
+    <div class="password-field" id="password">
+      <%= form.label :password %>
+      <%= form.password_field :password %>
+    </div>
 
-<div class="password-field" id="password_confirmation">
-  <%= form.label :password_confirmation %>
-  <%= form.password_field :password_confirmation	 %>
+    <div class="password-field" id="password_confirmation">
+      <%= form.label :password_confirmation %>
+      <%= form.password_field :password_confirmation	 %>
+    </div>
+
+
+    <div class="submit-field">
+      <%= form.submit %>
+    </div>
+  <% end %>
 </div>
