@@ -4,9 +4,12 @@
   <li><%= @user.last_name %></li>
   <li><%= @user.email %></li>
 </ul>
+
 <h3>Listings</h3>
 <ul>
-<% @user.listings.each do |listing| %>
-<li>Title: <%= link_to "#{listing.title}", listing %>, Pax: <%= listing.pax%></li>
-<% end %>
+  <% @listings.each_with_index do |listing,i| %>
+    <li>Title: <%= link_to "[#{i}] #{listing.title}", listing %>, Pax: <%= listing.pax%></li>
+  <% end %>
 </ul>
+
+<%= will_paginate @listings %>
