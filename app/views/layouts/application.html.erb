@@ -15,6 +15,7 @@
       Signed in as: <%= current_user.email %>
       <%= button_to 'Sign out', sign_out_path, method: :delete %>
       <%= link_to "Profile", current_user %>
+      <%= link_to "Create   Listing", new_listing_path %>
     <% else %>
       <%= link_to 'Sign in', sign_in_path, id: "sign_in", remote: true %>
       <%= link_to 'Sign up', sign_up_path, id: "sign_up", remote: true %>

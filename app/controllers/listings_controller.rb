@@ -5,12 +5,17 @@ class ListingsController < ApplicationController
     @listings = Listing.all
   end
 
+  def show
+    @listing = Listing.find(params[:id])
+  end
+  
   def new
     @listing = Listing.new
   end
 
   def create
     @listing = Listing.new(listing_params)
+    @listing.user_id = current_user.id
     respond_to do |format|
       if @listing.save
         format.html { redirect_to @listing, notice: "Successfully listed!" }
@@ -44,13 +49,9 @@ class ListingsController < ApplicationController
     redirect_to root_path
   end
 
-  def show
-    @listing = Listing.find(params[:id])
-  end
-  
   private
   def listing_params
-    params.require(:listing).permit(:title,:address,:pax)
+    params.require(:listing).permit(:title,:address,:pax,:user_id)
   end
 
 end
