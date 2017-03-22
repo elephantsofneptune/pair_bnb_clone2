@@ -1,2 +1,10 @@
 <h1>Listings#show</h1>
 <p>Find me in app/views/listings/show.html.erb</p>
+<% if owner? %>
+  <%= link_to "Edit", edit_listing_path(@listing) %>
+<% end %>
+<ul>
+  <li><%=@listing.title%></li>
+  <li><%=@listing.address%></li>
+  <li><%=@listing.pax%></li>
+</ul>

@@ -1,7 +1,9 @@
 class User < ApplicationRecord
   
   include Clearance::User
+  
   validates_confirmation_of :password
+
   validates :first_name,            presence: true
   validates :last_name,             presence: true
   has_many  :authentications,       dependent: :destroy
@@ -9,9 +11,9 @@ class User < ApplicationRecord
 
   def self.create_with_auth_and_hash(authentication, auth_hash)
       user = User.create!(
-                          first_name: get_first_name(auth_hash.info.name),
-                          last_name:  get_last_name(auth_hash.info.name),
-                          email:      auth_hash["extra"]["raw_info"]["email"]
+                          first_name: get_first_name(auth_hash[:info][:name]),
+                          last_name:  get_last_name(auth_hash[:info][:name]),
+                          email:      auth_hash[:info][:email]
                           )
       user.authentications << (authentication)      
       return user
