@@ -26,6 +26,8 @@ gem 'faker'
 
 gem 'will_paginate'
 
+gem 'carrierwave'
+
 group :development, :test do
   gem 'byebug', platform: :mri
 end
