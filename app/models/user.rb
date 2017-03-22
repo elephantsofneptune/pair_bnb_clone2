@@ -1,6 +1,9 @@
+require 'carrierwave/orm/activerecord'
+
 class User < ApplicationRecord
-  
-  include Clearance::User
+  include Clearance::User 
+
+  mount_uploader :avatar, AvatarUploader
   
   validates_confirmation_of :password
 
@@ -8,6 +11,8 @@ class User < ApplicationRecord
   validates :last_name,             presence: true
   has_many  :authentications,       dependent: :destroy
   has_many  :listings,              dependent: :destroy
+
+
 
   def self.create_with_auth_and_hash(authentication, auth_hash)
       user = User.create!(

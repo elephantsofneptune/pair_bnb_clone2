@@ -1,5 +1,4 @@
-<div id="users_form">
-  <%= form_for @user, remote: true do |form| %>
+
     <div class="text-field" id="first_name">
       <%= form.label :first_name %>
       <%= form.text_field :first_name, type: 'text' %>
@@ -25,8 +24,9 @@
       <%= form.password_field :password_confirmation	 %>
     </div>
 
+    <%= form.label :avatar %>
+    <%= form.file_field :avatar %>
+
     <div class="submit-field">
       <%= form.submit %>
     </div>
-  <% end %>
-</div>
