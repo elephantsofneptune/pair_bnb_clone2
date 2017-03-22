@@ -6,7 +6,6 @@ end
 
 def create
 	@user = User.new(user_params)
-	byebug
 		if @user.save
 			flash[:notice] = "Success!"
 			redirect_to @user
