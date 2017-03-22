@@ -8,12 +8,19 @@ class SessionsController < Clearance::SessionsController
       authentication.update_token(auth_hash)
       @next = root_url
       @notice = "Signed in!"
+      sign_in(user)
     else
       user = User.create_with_auth_and_hash(authentication, auth_hash)
-      @next = edit_user_path(user)   
-      @notice = "User created - confirm or edit details..."
+      byebug
+      if user
+        @next = edit_user_path(user)   
+        @notice = "User created - confirm or edit details..."
+        sign_in(user)
+      else
+        flash[:notice] = "E-mail exists"
+        @next = sign_in_path
+      end
     end
-    sign_in(user)
     redirect_to @next, :notice => @notice
   end
 
