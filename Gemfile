@@ -22,6 +22,8 @@ gem 'figaro'
 gem 'omniauth'
 gem 'omniauth-facebook'
 
+gem 'faker'
+
 group :development, :test do
   gem 'byebug', platform: :mri
 end
