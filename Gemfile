@@ -26,6 +26,9 @@ gem 'faker'
 
 gem 'will_paginate'
 
+gem 'carrierwave'
+gem 'mini_magick', '~> 4.5', '>= 4.5.1'
+
 group :development, :test do
   gem 'byebug', platform: :mri
 end

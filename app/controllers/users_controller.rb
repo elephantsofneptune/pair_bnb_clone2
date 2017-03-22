@@ -6,14 +6,13 @@ end
 
 def create
 	@user = User.new(user_params)
-	respond_to do |format|
 		if @user.save
-			format.html { redirect_to @user, notice: "Successfully registered!" }
+			flash[:notice] = "Success!"
+			redirect_to @user
 		else
-			format.html { redirect_to sign_up_path, notice: "Failed" }
-			format.js
+			flash[:error] = "Failed.."
+			redirect_to :back
 		end
-	end
 end
 
 def show
@@ -27,12 +26,13 @@ end
 
 def update
 	@user = User.find(params[:id])
+	byebug
 	@user.update(user_params)
 	redirect_to @user
 end
 
 private
 	def user_params
-		params.require(:user).permit(:first_name,:last_name,:email,:password, :password_confirmation)
+		params.require(:user).permit(:first_name,:last_name,:email,:password, :password_confirmation, :avatar)
 	end
 end
